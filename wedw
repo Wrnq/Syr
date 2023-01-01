@@ -1,7 +1,7 @@
 local RunService = game:GetService("RunService")
 -- ui shit 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("MyPark - Wrn HUB", "BloodTheme")
+local Window = Library.CreateLib("MyPark - Wrn HUB V1", "BloodTheme")
 
 
 local general = Window:NewTab("MAIN")
@@ -639,34 +639,22 @@ Section:NewButton("Speed", "ButtonInfo", function()
 end)
 
 
-local Section = Tab:NewSection("Big Ball")
-
-Section:NewButton("Big Ball Transparency ", "ButtonInfo", function()
-    print("Hello")
-    for _, v in pairs (game.workspace.Balls:GetDescendants())do
-if v.Name == 'Ball' then 
-v.Transparency = 0.4
-end
-end
-
-for _,balls in pairs(game.Workspace.Balls:GetChildren()) do
-        if balls.Name == "Ball" then
-            balls.Size = Vector3.new(5.32,5.32,5.32)
-        end
-    end
+local toggled99 = true
+rebound:NewKeybind("auto rebound", "", Enum.KeyCode.RightSuper, function()
+	if toggled99 then
+		rebound2(3)
+		tween()
+		LocalPlayer.Character.HumanoidRootPart.Anchored = true
+		toggled99 = false
+	else
+		LocalPlayer.Character.HumanoidRootPart.Anchored = false
+		toggled99 = true
+	end
 end)
-  
-Section:NewButton("Normal Ball", "ButtonInfo", function()
-    print("Wrn did this")
-    for _, v in pairs (game.workspace.Balls:GetDescendants())do
-if v.Name == 'Ball' then 
-v.Transparency = 0
-end
-end
 
-for _,balls in pairs(game.Workspace.Balls:GetChildren()) do
-        if balls.Name == "Ball" then
-            balls.Size = Vector3.new(1.32,1.32,1.32)
-        end
-    end
-end)
+local Tab = Window:NewTab("Skin Color")
+local Section = Tab:NewSection("Coming Soon")
+
+
+
+
